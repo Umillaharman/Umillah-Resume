@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siti An Umillah - Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f1f17;
+    color: white;
+    scroll-behavior: smooth;
+    margin: 0;
+}
+.subtitle {
+    display: block;
+    font-size: 18px;
+    margin-top: 8px;
+    opacity: 0.85;
+}
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 25px 10%;
+    background: rgba(15, 31, 23, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff4d79;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-follow, .btn-download {
+    text-decoration: none;
+    border: 1px solid #ff4d79;
+    padding: 8px 18px;
+    border-radius: 25px;
+    color: #ff4d79;
+    transition: 0.3s;
+}
+
+.btn-follow:hover,
+.btn-download:hover {
+    background: #ff4d79;
+    color: white;
+}
+
+/* HOME */
+.home {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.home video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 31, 23, 0.75); /* boleh adjust */
+    z-index: -1;
+}
+
+.home h3 {
+    font-family: 'Parisienne', cursive;
+    font-size: 70px;
+    color: #ffd6e0;
+    margin-bottom: 5px;
+}
+
+.home h2 {
+    font-size: 20px;
+    max-width: 700px;
+}
+
+.role {
+    color: #d9a5c9;
+}
+
+/* 🆕 TARIKH & MASA */
+.datetime {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #b0b0b0;
+    letter-spacing: 1px;
+}
+
+/* BUTTON */
+.btn-swipe {
+    margin-top: 40px;
+    padding: 12px 28px;
+    border: 2px solid #ff4d79;
+    border-radius: 30px;
+    color: #ff4d79;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-swipe:hover {
+    background: #ff4d79;
+    color: white;
+    transform: translateY(4px);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #142d21;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-buttons">
+        <a href="https://www.instagram.com/um1llah" target="_blank" class="btn-follow">Follow Me</a>
+        <a href="downloadcv.pdf" download class="btn-download">Download CV</a>
+    </div>
+</header>
+
+<section class="home">
+
+    <!-- Background Video -->
+    <video autoplay muted loop>
+        <source src="pinterest2.mp4" type="video/mp4">
+    </video>
+
+    <h3>Welcome to My Journey</h3>
+    <h2>
+        Hi I'm <span class="role">Siti An Umillah</span><br>
+        <span class="subtitle">Let’s discover more about my journey, experiences, and dreams!!</span>
+    </h2>
+
+
+    <!-- 🆕 TARIKH & MASA -->
+    <div class="datetime" id="datetime"></div>
+
+    <a href="about.html" class="btn-swipe">Click Here ↓</a>
+</section>
+
+<footer>
+    © 2025 Siti An Umillah
+</footer>
+
+<!-- 🆕 SCRIPT TARIKH & MASA -->
+<script>
+function updateDateTime() {
+    const now = new Date();
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    };
+    document.getElementById('datetime').textContent =
+        now.toLocaleDateString('en-GB', options);
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+</body>
+</html>

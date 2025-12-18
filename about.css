@@ -1,0 +1,240 @@
+/* ================= GLOBAL ================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f1f17;
+    color: white;
+    scroll-behavior: smooth;
+    margin: 0;
+    text-align: center; /* semua tulisan center by default */
+}
+
+/* ================= HEADER ================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 25px 10%;
+    background: rgba(15, 31, 23, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between; /* nav kiri, buttons kanan */
+    align-items: center;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* nav list center */
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff4d79;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.header-buttons a {
+    border: 1px solid #ff4d79;
+    padding: 8px 18px;
+    border-radius: 25px;
+    color: #ff4d79;
+    text-decoration: none;
+}
+
+.header-buttons a:hover {
+    background: #ff4d79;
+    color: white;
+}
+
+/* ================= ABOUT ================= */
+.about {
+    padding: 90px 10%;
+    background-color: #142d21;
+}
+
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #ff4d79;
+    border-bottom: 3px solid #ff4d79;
+    display: inline-block;
+    margin-bottom: 30px;
+    animation: fadeDown 1s ease;
+}
+
+.about-intro {
+    max-width: 900px;
+    margin: 20px auto;
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.9;
+    animation: fadeUp 1.2s ease;
+}
+
+/* ================= CONTENT ================= */
+.about-content {
+    display: flex;
+    gap: 20px; /* rapatkan polaroid dengan table */
+    justify-content: center; /* center polaroid & table */
+    align-items: flex-start; /* top aligned */
+    flex-wrap: wrap;
+}
+
+/* ================= POLAROID IMAGE ================= */
+.polaroid {
+    width: 280px;
+    background: white;
+    padding: 10px 10px 25px;
+    border-radius: 6px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+    transform: rotate(-2deg);
+    text-align: center;
+    margin: 0; /* guna gap untuk jarak */
+}
+
+.polaroid img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+}
+
+.polaroid p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Parisienne', cursive;
+}
+
+/* ================= TABLE ================= */
+.about-table {
+    flex: 1;
+    max-width: 500px;
+}
+
+.about-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    margin: auto; /* center table */
+}
+
+.about-table th,
+.about-table td {
+    border: 1px solid #ec88a1;
+    padding: 10px;
+    text-align: left;
+}
+
+.about-table th {
+    width: 40%;
+    background-color: #0f1f17;
+    color: #ff4d79;
+}
+
+.about-table a {
+    color: #ff4d79;
+    text-decoration: underline;
+}
+
+/* ================= SKILLS ================= */
+.skills {
+    margin-top: 100px;
+}
+
+.skills h2 {
+    font-family: 'Playfair Display', serif;
+    color: #ff4d79;
+    font-size: 40px;
+    border-bottom: 3px solid #ff4d79;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.skill-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid #ec88a1;
+    transition: transform 0.3s ease;
+}
+
+.skill-box h3 {
+    color: #ff4d79;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.skill-box ul {
+    padding-left: 20px;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #142d21;
+    text-align: center;
+    padding: 25px;
+    margin-top: 80px;
+    font-size: 14px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-table {
+        max-width: 90%; /* responsive table */
+    }
+}
